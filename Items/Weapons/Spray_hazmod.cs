@@ -1,6 +1,7 @@
-using hazymod.Projectiles;
-using hazymod.Tiles;
+using hazymod.Bullets;
+//using hazymod.Tiles;
 using Terraria;
+using Microsoft.Xna.Framework;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -29,14 +30,14 @@ namespace hazymod.Items.Weapons
 			item.rare = ItemRarityID.Green;
 			item.UseSound = SoundID.Item20;
 			item.autoReuse = true;
-			item.shoot = ProjectileType<SparklingBall>();
+			item.shoot = ProjectileType<Wisp>(); //this would have to be changed based on the projectile to be used
 			item.shootSpeed = 16f;
 		}
 
 		public override void AddRecipes() {
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemType<ExampleItem>(), 10);
-			recipe.AddTile(TileType<ExampleWorkbench>());
+			recipe.AddIngredient(ItemID.DirtBlock, 10);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
